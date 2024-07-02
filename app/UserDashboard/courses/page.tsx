@@ -47,7 +47,7 @@ export default function Dashboard() {
                     },
                     index: number
                   ) => (
-                    <Link href={`/${title}`} key={uid}>
+                    <Link href={`/UserDashboard/courses/${ title }`} key={uid}>
                       <Card className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number">
                         <CardHeader>
                           <div className="flex justify-between">
