@@ -76,9 +76,9 @@ export const Navbar = () => {
     router.push("/UserDashboard");
   };
   return (
-    <header className="shadow-inner bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60  w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2">
+    <header className=" bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60  w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2">
       <Link href="/" className="font-bold text-lg flex items-center">
-        <NotebookTabs className="rounded-lg w-9 h-9 mr-2 border text-foreground" />
+        <NotebookTabs className="rounded-lg w-9 h-9 mr-2 border-none text-foreground " />
         Aether Learn
       </Link>
 
