@@ -1,9 +1,7 @@
 "use client";
+import { useParams, useRouter } from "next/navigation";
 import React from "react";
-
-import { useParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
-
 import {
   Card,
   CardContent,
@@ -29,11 +27,13 @@ import { Navbar } from "@/components/admin-panel/navbar";
 import { Badge } from "@/components/ui/badge";
 import { coursesList } from "@/constant/coursesList";
 
-const CoursePage = () => {
-  const { course } = useParams();
-  const courseId = course.toString().replace(/%20/g, " ");
+// Helper function to check if the course is completed
+const isCourseCompleted = (progress: string) => progress === "100%";
 
-  const selectedCourse = coursesList.find((c) => c.title === courseId);
+const CoursePage = () => {
+  const { certificate } = useParams();
+  const courseTitle = certificate.toString().replace(/%20/g, " ");
+  const selectedCourse = coursesList.find((c) => c.title === courseTitle);
 
   if (!selectedCourse) {
     return (
@@ -47,6 +47,27 @@ const CoursePage = () => {
               </CardHeader>
               <CardContent>
                 <p>The course you&apos;re looking for does not exist.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (isCourseCompleted(selectedCourse.progress)) {
+    return (
+      <div className="flex min-h-screen w-full flex-col">
+        <Navbar title="Certificate of Completion" />
+        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+          <div className="grid gap-4 md:grid-cols-1 md:gap-8 lg:grid-cols-2">
+            <Card className="xl:col-span-2" x-chunk="dashboard-01-chunk-4">
+              <CardHeader>
+                <CardTitle>Certificate of Completion</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Congratulations! You have completed the course.</p>
+                <p>Your certificate is ready to be downloaded.</p>
               </CardContent>
             </Card>
           </div>

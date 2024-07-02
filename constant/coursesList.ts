@@ -13,6 +13,7 @@ interface Course {
     progress: string;
     totalModules: number;
     modules: Module[];
+    lastOpened: string;
 }
 
 export const coursesList: Course[] = [
@@ -40,7 +41,8 @@ export const coursesList: Course[] = [
                     "Lesson 3: Layout and Composition"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-20T14:32:00Z"
     },
     {
         icon: "NotebookText",
@@ -74,7 +76,8 @@ export const coursesList: Course[] = [
                     "Lesson 3: Analytics and Optimization"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-18T10:15:00Z"
     },
     {
         icon: "NotebookText",
@@ -100,7 +103,8 @@ export const coursesList: Course[] = [
                     "Lesson 3: Making a Business Card"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-21T09:45:00Z"
     },
     {
         icon: "NotebookText",
@@ -118,7 +122,8 @@ export const coursesList: Course[] = [
                     "Lesson 3: Writing Your First Program"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-17T16:00:00Z"
     },
     {
         icon: "NotebookText",
@@ -144,7 +149,8 @@ export const coursesList: Course[] = [
                     "Lesson 3: Editing and Revising"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-19T11:20:00Z"
     },
     {
         icon: "NotebookText",
@@ -178,7 +184,195 @@ export const coursesList: Course[] = [
                     "Lesson 3: Deployment and Hosting"
                 ]
             }
-        ]
+        ],
+        lastOpened: "2024-06-22T14:00:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course7",
+        title: "Photography Basics",
+        description: "Ethan Harris",
+        progress: "100%",
+        totalModules: 2,
+        modules: [
+            {
+                moduleTitle: "Introduction to Photography",
+                lessons: [
+                    "Lesson 1: Camera Basics",
+                    "Lesson 2: Understanding Exposure",
+                    "Lesson 3: Composition Techniques"
+                ]
+            },
+            {
+                moduleTitle: "Advanced Photography",
+                lessons: [
+                    "Lesson 1: Portrait Photography",
+                    "Lesson 2: Landscape Photography",
+                    "Lesson 3: Post-Processing"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-20T13:30:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course8",
+        title: "Introduction to Data Science",
+        description: "Ava Martinez",
+        progress: "50%",
+        totalModules: 3,
+        modules: [
+            {
+                moduleTitle: "Data Science Basics",
+                lessons: [
+                    "Lesson 1: What is Data Science?",
+                    "Lesson 2: Data Analysis Techniques",
+                    "Lesson 3: Data Visualization"
+                ]
+            },
+            {
+                moduleTitle: "Data Processing",
+                lessons: [
+                    "Lesson 1: Cleaning Data",
+                    "Lesson 2: Transforming Data",
+                    "Lesson 3: Data Integration"
+                ]
+            },
+            {
+                moduleTitle: "Machine Learning",
+                lessons: [
+                    "Lesson 1: Introduction to Machine Learning",
+                    "Lesson 2: Supervised Learning",
+                    "Lesson 3: Unsupervised Learning"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-18T15:45:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course9",
+        title: "Introduction to Public Speaking",
+        description: "Mia Johnson",
+        progress: "100%",
+        totalModules: 2,
+        modules: [
+            {
+                moduleTitle: "Public Speaking Fundamentals",
+                lessons: [
+                    "Lesson 1: Overcoming Fear",
+                    "Lesson 2: Structuring Your Speech",
+                    "Lesson 3: Engaging Your Audience"
+                ]
+            },
+            {
+                moduleTitle: "Advanced Public Speaking",
+                lessons: [
+                    "Lesson 1: Persuasive Speaking",
+                    "Lesson 2: Using Visual Aids",
+                    "Lesson 3: Handling Q&A"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-22T09:10:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course10",
+        title: "Introduction to Financial Management",
+        description: "Isabella Garcia",
+        progress: "75%",
+        totalModules: 3,
+        modules: [
+            {
+                moduleTitle: "Financial Management Basics",
+                lessons: [
+                    "Lesson 1: Understanding Financial Statements",
+                    "Lesson 2: Budgeting",
+                    "Lesson 3: Cash Flow Management"
+                ]
+            },
+            {
+                moduleTitle: "Investment Strategies",
+                lessons: [
+                    "Lesson 1: Stock Market Basics",
+                    "Lesson 2: Bonds and Mutual Funds",
+                    "Lesson 3: Real Estate Investment"
+                ]
+            },
+            {
+                moduleTitle: "Advanced Financial Management",
+                lessons: [
+                    "Lesson 1: Risk Management",
+                    "Lesson 2: Financial Planning",
+                    "Lesson 3: Retirement Planning"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-21T17:25:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course11",
+        title: "Basics of Cooking",
+        description: "Charlotte Anderson",
+        progress: "100%",
+        totalModules: 2,
+        modules: [
+            {
+                moduleTitle: "Cooking Fundamentals",
+                lessons: [
+                    "Lesson 1: Kitchen Safety",
+                    "Lesson 2: Basic Knife Skills",
+                    "Lesson 3: Cooking Techniques"
+                ]
+            },
+            {
+                moduleTitle: "Advanced Cooking",
+                lessons: [
+                    "Lesson 1: Sauces and Seasonings",
+                    "Lesson 2: Baking Basics",
+                    "Lesson 3: International Cuisines"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-20T12:50:00Z"
+    },
+    {
+        icon: "NotebookText",
+        uid: "course12",
+        title: "Introduction to Project Management",
+        description: "Lily Robinson",
+        progress: "40%",
+        totalModules: 3,
+        modules: [
+            {
+                moduleTitle: "Project Management Basics",
+                lessons: [
+                    "Lesson 1: What is Project Management?",
+                    "Lesson 2: Project Lifecycle",
+                    "Lesson 3: Stakeholder Management"
+                ]
+            },
+            {
+                moduleTitle: "Planning and Execution",
+                lessons: [
+                    "Lesson 1: Project Planning",
+                    "Lesson 2: Scheduling",
+                    "Lesson 3: Resource Management"
+                ]
+            },
+            {
+                moduleTitle: "Advanced Project Management",
+                lessons: [
+                    "Lesson 1: Risk Management",
+                    "Lesson 2: Quality Management",
+                    "Lesson 3: Project Closure"
+                ]
+            }
+        ],
+        lastOpened: "2024-06-19T14:40:00Z"
     }
 ];
+
 
