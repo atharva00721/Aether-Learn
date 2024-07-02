@@ -1,19 +1,5 @@
 import Link from "next/link";
-import {
-  Activity,
-  ArrowUpRight,
-  Book,
-  CircleUser,
-  CreditCard,
-  DollarSign,
-  Menu,
-  Package2,
-  Search,
-  Users,
-} from "lucide-react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,25 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+
+import { Icon } from "@/components/ui/icon";
+import { icons } from "lucide-react";
 import { Navbar } from "@/components/admin-panel/navbar";
+import { coursesList } from "@/constant/coursesList";
+import { Badge } from "@/components/ui/badge";
 
 export default function Dashboard() {
   return (
@@ -52,77 +25,56 @@ export default function Dashboard() {
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Courses</CardTitle>
-                <CardDescription>
-                  All your courses and certifications
-                </CardDescription>
+                <CardDescription>All your courses</CardDescription>
               </div>
-              <Button asChild size="sm" className="ml-auto gap-1">
-                <Link href="#">
-                  View All
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </Button>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Course</TableHead>
-
-                    <TableHead className="sm:table-column">Staus</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>
-                      <div className="font-medium">
-                        Graphic Design for Beginners
-                      </div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        By Liam Johnson
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="text-right">100%</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div className="font-medium">
-                        Digital Marketing Masterclass
-                      </div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        By Olivia Smith
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="text-right">69%</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div className="font-medium">
-                        Graphic Design for Beginners
-                      </div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        By Noah Williams
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="text-right">80%</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div className="font-medium">
-                        Introduction to Python Programming
-                      </div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        Emma Brown
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="text-right">0%</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              <div className="grid lg:grid-cols-2 gap-4 w-full">
+                {coursesList.map(
+                  (
+                    {
+                      uid,
+                      icon,
+                      title,
+                      description,
+                      progress,
+                    }: {
+                      uid: string;
+                      icon: string;
+                      title: string;
+                      description: string;
+                      progress: string;
+                    },
+                    index: number
+                  ) => (
+                    <Link
+                      href={`http://localhost:3000/UserDashboard/courses/${title}`}
+                      key={uid}
+                    >
+                      <Card className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number">
+                        <CardHeader>
+                          <div className="flex justify-between">
+                            <Icon
+                              name={icon as keyof typeof icons}
+                              size={32}
+                              color="hsl(var(--primary))"
+                              className="mb-6 text-primary"
+                            />
+                            <span className="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
+                              0{index + 1}
+                            </span>
+                          </div>
+                          <CardTitle>{title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-muted-foreground flex justify-between">
+                          {description}
+                          <Badge className="text-right">{progress}</Badge>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  )
+                )}
+              </div>
             </CardContent>
           </Card>
         </div>
