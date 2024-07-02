@@ -117,6 +117,17 @@ export const Navbar = () => {
                     <Link href={href}>{label}</Link>
                   </Button>
                 ))}
+                <Button
+                  asChild
+                  size="sm"
+                  className="flex gap-1 cursor-pointer"
+                  onClick={handleClick}
+                >
+                  <div>
+                    DashBoard
+                    {/* <LogIn className=" size-5" /> */}
+                  </div>
+                </Button>
               </div>
             </div>
 
