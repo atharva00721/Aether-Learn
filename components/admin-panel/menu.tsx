@@ -24,9 +24,9 @@ export function Menu({ isOpen }: MenuProps) {
   const pathname = usePathname();
   const menuList = getMenuList(pathname);
   const router = useRouter();
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    router.push("/");
+    router.push("/UserDashboard");
   };
   return (
     <ScrollArea className="[&>div>div[style]]:!block">

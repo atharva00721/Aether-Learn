@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 export const HeroSection = () => {
   const { theme } = useTheme();
   const router = useRouter();
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     router.push("/UserDashboard");
   };

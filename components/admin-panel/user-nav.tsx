@@ -24,9 +24,9 @@ import { useRouter } from "next/navigation";
 
 export function UserNav() {
   const router = useRouter();
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
-    router.push("/");
+    router.push("/UserDashboard");
   };
   return (
     <DropdownMenu>
