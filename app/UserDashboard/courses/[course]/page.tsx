@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+
 import { useParams } from "next/navigation";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
+
 import {
   Card,
   CardContent,
@@ -46,7 +46,7 @@ const CoursePage = () => {
                 <CardTitle>Course Not Found</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>The course you're looking for does not exist.</p>
+                <p>The course you&apos;re looking for does not exist.</p>
               </CardContent>
             </Card>
           </div>
