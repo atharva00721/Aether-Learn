@@ -1,5 +1,5 @@
 "use client";
-import { LogIn, Menu, NotebookTabs } from "lucide-react";
+import { LogIn, LogOut, Menu, NotebookTabs } from "lucide-react";
 import React from "react";
 import {
   Sheet,
@@ -21,7 +21,8 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { ToggleTheme } from "./toogle-theme";
 import { useRouter } from "next/navigation";
-
+import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 interface RouteProps {
   href: string;
   label: string;
@@ -51,24 +52,11 @@ const routeList: RouteProps[] = [
   },
 ];
 
-const featureList: FeatureProps[] = [
-  {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
-  },
-  {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
-  },
-  {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
-  },
-];
-
 export const Navbar = () => {
+  const { isSignedIn } = useUser();
+
+  // In case the user signs out while on the page.
+
   const [isOpen, setIsOpen] = React.useState(false);
   const router = useRouter();
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -117,21 +105,48 @@ export const Navbar = () => {
                     <Link href={href}>{label}</Link>
                   </Button>
                 ))}
-                <Button
-                  asChild
-                  size="sm"
-                  className="flex gap-1 cursor-pointer"
-                  onClick={handleClick}
-                >
-                  <div>
-                    DashBoard
-                    {/* <LogIn className=" size-5" /> */}
-                  </div>
-                </Button>
               </div>
             </div>
 
             <SheetFooter className="flex-col sm:flex-col justify-start items-start">
+              {(isSignedIn && (
+                <div className="flex gap-1 cursor-pointer w-full flex-col">
+                  <Button
+                    asChild
+                    size="sm"
+                    className="flex gap-1 cursor-pointer w-full justify-between"
+                    onClick={handleClick}
+                  >
+                    <div>
+                      DashBoard
+                      <NotebookTabs size={18} />
+                    </div>
+                  </Button>
+
+                  <SignOutButton>
+                    <Button
+                      size="sm"
+                      className="flex gap-1 cursor-pointer w-full justify-between"
+                    >
+                      <div>Sign out</div>
+                      <LogOut size={18} />
+                    </Button>
+                  </SignOutButton>
+                </div>
+              )) || (
+                <SignInButton>
+                  <Button
+                    asChild
+                    size="sm"
+                    className="flex gap-1 cursor-pointer w-full justify-between"
+                  >
+                    <div>
+                      Log In
+                      <LogIn size={18} />
+                    </div>
+                  </Button>
+                </SignInButton>
+              )}
               <Separator className="mb-2" />
 
               <ToggleTheme />
@@ -154,20 +169,36 @@ export const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex gap-1">
         <ToggleTheme />
-
-        <Button
-          asChild
-          size="sm"
-          className="flex gap-1 cursor-pointer"
-          onClick={handleClick}
-        >
-          <div>
-            DashBoard
-            {/* <LogIn className=" size-5" /> */}
-          </div>
-        </Button>
+        {(isSignedIn && (
+          <>
+            <Button
+              asChild
+              size="sm"
+              className="flex gap-1 cursor-pointer"
+              onClick={handleClick}
+            >
+              <div>DashBoard</div>
+            </Button>
+            <div>
+              <SignOutButton>
+                <Button size="sm" className="flex gap-1 cursor-pointer">
+                  Sign out
+                </Button>
+              </SignOutButton>
+            </div>
+          </>
+        )) || (
+          <Button
+            asChild
+            size="sm"
+            className="flex gap-1 cursor-pointer"
+            onClick={handleClick}
+          >
+            <div>Log In</div>
+          </Button>
+        )}
       </div>
     </header>
   );
