@@ -132,11 +132,6 @@ export function Menu({ isOpen }: MenuProps) {
                       </p>
                     </Button>
                   </SignOutButton>
-                  {/* <SignOutButton>
-                <Button size="sm" className="flex gap-1 cursor-pointer">
-                  Sign out
-                </Button>
-              </SignOutButton> */}
                 </TooltipTrigger>
                 {isOpen === false && (
                   <TooltipContent side="right">Sign out</TooltipContent>
