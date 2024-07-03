@@ -33,7 +33,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div vaul-drawer-wrapper="">{children}</div>
           </ThemeProvider>
         </body>
       </html>

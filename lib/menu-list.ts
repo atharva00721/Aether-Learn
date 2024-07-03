@@ -74,9 +74,9 @@ export function getMenuList(pathname: string): Group[] {
       groupLabel: "Settings",
       menus: [
         {
-          href: "",
+          href: "/UserDashboard/user",
           label: "User Info",
-          active: pathname === "/user",
+          active: pathname === "/UserDashboard/user",
           icon: User,
           submenus: []
         },
