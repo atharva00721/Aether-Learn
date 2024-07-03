@@ -60,7 +60,7 @@ export default function Dashboard() {
                 </div>
               )) || <Skeleton className="h-6 w-50 rounded-full mb-2" />}
 
-              <p className="text-xs text-muted-foreground">Let's Learn</p>
+              <p className="text-xs text-muted-foreground">Let&apos;s Learn</p>
             </CardContent>
           </Card>
           <Link href={`/UserDashboard/courses/${latestOpenedCourse.title}`}>
