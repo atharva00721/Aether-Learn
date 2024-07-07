@@ -8,8 +8,9 @@ import {
 } from "@/components/ui/card";
 import Certificate from "@/components/layout/certificateDisplay";
 import { Navbar } from "@/components/admin-panel/navbar";
-import { useUser } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Dashboard() {
   const { user, isLoaded } = useUser();
@@ -25,6 +26,9 @@ export default function Dashboard() {
                 <CardTitle>User Information</CardTitle>
                 <CardDescription>All we know about you ;p</CardDescription>
               </div>
+              <Button variant={"ghost"}>
+                <UserButton />
+              </Button>
               {/* <Credenza>
                 <CredenzaTrigger asChild>
                   <Button>Edit</Button>
@@ -121,12 +125,12 @@ export default function Dashboard() {
                       Username
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>{user?.username}</CardContent>
+                  <CardContent>{user?.username || (<p>oops no username</p>)}</CardContent>
                 </Card>
                 <Card x-chunk="dashboard-01-chunk-0">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium flex justify-between w-full">
-                      Name
+                      Email
                     </CardTitle>
                   </CardHeader>
                   <CardContent>{user?.emailAddresses.toString()}</CardContent>
